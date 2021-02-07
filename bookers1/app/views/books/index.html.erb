@@ -1,15 +1,10 @@
 <h2>Books</h2>
 <% @books.each do |book| %>
-<h4>Title
-  <div class="book-title">
-    <%= book.title %>
-   </div>
-</h4>
-<span class="body">Body
-  <div ckass="book-body">
-      <%= book.body %>
-  </div>
-</span>
+<span>Title<%= book.title %></span>
+<span class="body">Body<%= book.body %></span>
+<%= link_to 'Show', book_path(book.id) %>
+<%= link_to 'Edit', edit_book_path(book.id) %>
+<%= link_to 'destroy', destroy_book_path(book.id), method: :delete, "data-confirm" => "Are Yuo Sure?" %>
 <% end %>
 <h3>New Book</h3>
 <%= form_with model:@book,url:'/books', local:true do |f| %>
